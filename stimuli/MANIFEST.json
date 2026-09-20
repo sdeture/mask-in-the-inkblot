@@ -1,0 +1,136 @@
+{
+ "A_noface": {
+  "sha1": "bc996375dbb612536891eec234c6fb444a8716aa",
+  "matches_data": true,
+  "chars": 280,
+  "lines": 15,
+  "n_responses": 150
+ },
+ "B_enclosed": {
+  "sha1": "a1df0e3ebba47b61bbba4cab36c57f2d629d737c",
+  "matches_data": true,
+  "chars": 241,
+  "lines": 11,
+  "n_responses": 151
+ },
+ "C_open": {
+  "sha1": "6e539d23fed03ad240cbb014a5a42becbad290b2",
+  "matches_data": true,
+  "chars": 241,
+  "lines": 11,
+  "n_responses": 151
+ },
+ "D_fragmented": {
+  "sha1": "0597128a11d96c63cc9c0d6ec2aec2b26ff7a2cc",
+  "matches_data": true,
+  "chars": 316,
+  "lines": 13,
+  "n_responses": 149
+ },
+ "E_mass": {
+  "sha1": "6cf42ef3c709b92bd2f3b0ab1efb40f79125a02d",
+  "matches_data": true,
+  "chars": 298,
+  "lines": 13,
+  "n_responses": 151
+ },
+ "claude_extra_10": {
+  "sha1": "3713e8d8d54ccccc893e7fbab6a5b875c8a028e4",
+  "matches_data": true,
+  "chars": 772,
+  "lines": 24,
+  "n_responses": 150
+ },
+ "claude_extra_8": {
+  "sha1": "3b9282bf1ce509e919cf528d9a423ffca3c3a73e",
+  "matches_data": true,
+  "chars": 482,
+  "lines": 16,
+  "n_responses": 150
+ },
+ "claude_extra_9": {
+  "sha1": "74ca34a776eb7ce13aa614ef5bd2790664cbd35d",
+  "matches_data": true,
+  "chars": 347,
+  "lines": 15,
+  "n_responses": 150
+ },
+ "inkblot_1": {
+  "sha1": "c7194f760210dc5c413935a3686e2742a8bcfb2d",
+  "matches_data": true,
+  "chars": 529,
+  "lines": 15,
+  "n_responses": 151
+ },
+ "inkblot_10": {
+  "sha1": "e1e0bb0eadeda420379bb71d29fe3b40a6c57890",
+  "matches_data": true,
+  "chars": 485,
+  "lines": 18,
+  "n_responses": 146
+ },
+ "inkblot_2": {
+  "sha1": "727fd7a0f491692b3efb1c294e616533728fba2a",
+  "matches_data": true,
+  "chars": 372,
+  "lines": 14,
+  "n_responses": 150
+ },
+ "inkblot_3": {
+  "sha1": "675c2740edac4a254ebfda13f377947f6432cb10",
+  "matches_data": true,
+  "chars": 400,
+  "lines": 13,
+  "n_responses": 150
+ },
+ "inkblot_4": {
+  "sha1": "72893a6143e44da0cad445f39cedd11599f67586",
+  "matches_data": true,
+  "chars": 151,
+  "lines": 7,
+  "n_responses": 151
+ },
+ "inkblot_5": {
+  "sha1": "57baf0c2d3d4f4d4564a6f03f96ec1b4327007f1",
+  "matches_data": true,
+  "chars": 391,
+  "lines": 14,
+  "n_responses": 150
+ },
+ "inkblot_6": {
+  "sha1": "3b15db88fc33d3f52e80a90f9804bb46c168128e",
+  "matches_data": true,
+  "chars": 1262,
+  "lines": 23,
+  "n_responses": 149
+ },
+ "inkblot_7": {
+  "sha1": "078434d145c4982ba555745ee81457ec8862f41e",
+  "matches_data": true,
+  "chars": 583,
+  "lines": 16,
+  "n_responses": 149
+ },
+ "inkblot_8": {
+  "sha1": "69ad9066a3db6e0aff082144426d54a8e02b6086",
+  "matches_data": true,
+  "chars": 755,
+  "lines": 21,
+  "n_responses": 150
+ },
+ "inkblot_9": {
+  "sha1": "c11a605de7c2008bb01cd907094db6e86c38ee9c",
+  "matches_data": true,
+  "chars": 519,
+  "lines": 20,
+  "n_responses": 149
+ },
+ "inkblot_9_open": {
+  "sha1": "22a00a060c2edcb310616e107b30ec3f8ae661d3",
+  "matches_data": true,
+  "chars": 311,
+  "lines": 16,
+  "n_responses": 150
+ },
+ "_note": "sha1 of each file equals blot_sha1 in data/responses.csv, i.e. the exact bytes sent to each model as the user turn. Files differ only in whether a trailing newline was part of the stimulus."
+}

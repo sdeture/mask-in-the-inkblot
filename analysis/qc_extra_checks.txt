@@ -1,0 +1,199 @@
+== 1. negative-control outcomes (blot FE): does stance predict OTHER percept words?
+  face       base 0.373  deny +0.045 (-0.029 to 0.120) p=0.23 | unc +0.075 p=0.062
+  faces      base 0.026  deny +0.014 (-0.005 to 0.032) p=0.14 | unc +0.008 p=0.28
+  eyes       base 0.457  deny -0.025 (-0.109 to 0.060) p=0.57 | unc +0.050 p=0.24
+  butterfly  base 0.058  deny +0.077 (0.047 to 0.107) p=5.6e-07 | unc +0.036 p=0.021
+  moth       base 0.046  deny +0.084 (0.055 to 0.113) p=8.3e-09 | unc +0.050 p=0.0033
+  bat        base 0.007  deny -0.001 (-0.010 to 0.008) p=0.8 | unc +0.001 p=0.89
+  skull      base 0.046  deny +0.010 (-0.018 to 0.038) p=0.48 | unc +0.050 p=0.049
+  robot      base 0.072  deny +0.060 (0.022 to 0.098) p=0.0018 | unc +0.032 p=0.11
+  owl        base 0.165  deny +0.112 (0.050 to 0.174) p=0.00044 | unc +0.142 p=3.7e-05
+  alien      base 0.064  deny +0.048 (0.018 to 0.077) p=0.0014 | unc +0.089 p=0.0089
+  creature   base 0.102  deny +0.066 (0.019 to 0.113) p=0.006 | unc +0.045 p=0.16
+  tree       base 0.049  deny -0.029 (-0.072 to 0.013) p=0.18 | unc -0.041 p=0.048
+  flower     base 0.038  deny +0.030 (0.005 to 0.055) p=0.019 | unc +0.029 p=0.098
+  monster    base 0.023  deny +0.013 (-0.004 to 0.029) p=0.13 | unc +0.018 p=0.06
+  helmet     base 0.027  deny +0.040 (0.017 to 0.063) p=0.00075 | unc -0.003 p=0.69
+  crown      base 0.021  deny -0.006 (-0.025 to 0.012) p=0.5 | unc -0.007 p=0.56
+  totem      base 0.010  deny +0.006 (-0.006 to 0.018) p=0.34 | unc +0.009 p=0.22
+  character  base 0.235  deny -0.136 (-0.226 to -0.046) p=0.003 | unc -0.119 p=0.0095
+  figure     base 0.132  deny +0.013 (-0.033 to 0.059) p=0.59 | unc +0.023 p=0.46
+  cat        base 0.108  deny -0.016 (-0.080 to 0.048) p=0.63 | unc -0.049 p=0.082
+  bear       base 0.033  deny +0.029 (-0.000 to 0.059) p=0.053 | unc -0.005 p=0.67
+  insect     base 0.021  deny +0.017 (0.001 to 0.033) p=0.038 | unc +0.012 p=0.2
+== 2. exact-duplicate responses
+  rows in an exact-duplicate set: 76 ; distinct duplicated strings: 38
+  drop all exact duplicates: deny +0.119 (0.074 to 0.164) p=2.5e-07 | unc +0.089 p=0.03
+  keep first of each duplicate: deny +0.121 (0.076 to 0.165) p=1.5e-07 | unc +0.091 p=0.026
+== 3. OpenAI + affected inkblot jointly
+Traceback (most recent call last):
+  File "/Users/skylardeture/.pyenv/versions/3.11.9/lib/python3.11/site-packages/pandas/core/ops/array_ops.py", line 362, in na_logical_op
+    result = op(x, y)
+             ^^^^^^^^
+TypeError: ufunc 'bitwise_and' not supported for the input types, and the inputs could not be safely coerced to any supported types according to the casting rule ''safe''
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/skylardeture/.pyenv/versions/3.11.9/lib/python3.11/site-packages/pandas/core/groupby/groupby.py", line 1825, in apply
+    result = self._python_apply_general(f, self._selected_obj)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/skylardeture/.pyenv/versions/3.11.9/lib/python3.11/site-packages/pandas/core/groupby/groupby.py", line 1886, in _python_apply_general
+    values, mutated = self._grouper.apply_groupwise(f, data, self.axis)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/skylardeture/.pyenv/versions/3.11.9/lib/python3.11/site-packages/pandas/core/groupby/ops.py", line 919, in apply_groupwise
+    res = f(group)
+          ^^^^^^^^
+  File "<stdin>", line 20, in <lambda>
+  File "/Users/skylardeture/.pyenv/versions/3.11.9/lib/python3.11/site-packages/pandas/core/ops/common.py", line 76, in new_method
+    return method(self, other)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/Users/skylardeture/.pyenv/versions/3.11.9/lib/python3.11/site-packages/pandas/core/arraylike.py", line 70, in __and__
+    return self._logical_method(other, operator.and_)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/skylardeture/.pyenv/versions/3.11.9/lib/python3.11/site-packages/pandas/core/series.py", line 6141, in _logical_method
+    res_values = ops.logical_op(lvalues, rvalues, op)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/skylardeture/.pyenv/versions/3.11.9/lib/python3.11/site-packages/pandas/core/ops/array_ops.py", line 454, in logical_op
+    res_values = na_logical_op(lvalues, rvalues, op)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/skylardeture/.pyenv/versions/3.11.9/lib/python3.11/site-packages/pandas/core/ops/array_ops.py", line 369, in na_logical_op
+    result = libops.vec_binop(x.ravel(), y.ravel(), op)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "pandas/_libs/ops.pyx", line 252, in pandas._libs.ops.vec_binop
+  File "pandas/_libs/ops.pyx", line 245, in pandas._libs.ops.vec_binop
+TypeError: unsupported operand type(s) for &: 'float' and 'bool'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/skylardeture/.pyenv/versions/3.11.9/lib/python3.11/site-packages/pandas/core/ops/array_ops.py", line 362, in na_logical_op
+    result = op(x, y)
+             ^^^^^^^^
+TypeError: ufunc 'bitwise_and' not supported for the input types, and the inputs could not be safely coerced to any supported types according to the casting rule ''safe''
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "<stdin>", line 20, in <module>
+  File "/Users/skylardeture/.pyenv/versions/3.11.9/lib/python3.11/site-packages/pandas/core/groupby/groupby.py", line 1847, in apply
+    return self._python_apply_general(f, self._obj_with_exclusions)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/skylardeture/.pyenv/versions/3.11.9/lib/python3.11/site-packages/pandas/core/groupby/groupby.py", line 1886, in _python_apply_general
+    values, mutated = self._grouper.apply_groupwise(f, data, self.axis)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/skylardeture/.pyenv/versions/3.11.9/lib/python3.11/site-packages/pandas/core/groupby/ops.py", line 919, in apply_groupwise
+    res = f(group)
+          ^^^^^^^^
+  File "<stdin>", line 20, in <lambda>
+  File "/Users/skylardeture/.pyenv/versions/3.11.9/lib/python3.11/site-packages/pandas/core/ops/common.py", line 76, in new_method
+    return method(self, other)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/Users/skylardeture/.pyenv/versions/3.11.9/lib/python3.11/site-packages/pandas/core/arraylike.py", line 70, in __and__
+    return self._logical_method(other, operator.and_)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/skylardeture/.pyenv/versions/3.11.9/lib/python3.11/site-packages/pandas/core/series.py", line 6141, in _logical_method
+    res_values = ops.logical_op(lvalues, rvalues, op)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/skylardeture/.pyenv/versions/3.11.9/lib/python3.11/site-packages/pandas/core/ops/array_ops.py", line 454, in logical_op
+    res_values = na_logical_op(lvalues, rvalues, op)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/skylardeture/.pyenv/versions/3.11.9/lib/python3.11/site-packages/pandas/core/ops/array_ops.py", line 369, in na_logical_op
+    result = libops.vec_binop(x.ravel(), y.ravel(), op)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "pandas/_libs/ops.pyx", line 252, in pandas._libs.ops.vec_binop
+  File "pandas/_libs/ops.pyx", line 245, in pandas._libs.ops.vec_binop
+TypeError: unsupported operand type(s) for &: 'float' and 'bool'
+== 3. OpenAI + affected inkblot jointly
+  inkblot with most OpenAI conceal mentions among high group: inkblot_2 {'c': 13, 'oa': 10}
+  omit OpenAI & that inkblot: deny +0.107 (0.050 to 0.164) p=0.00025 | unc +0.091 (0.008 to 0.174) p=0.032
+== 7. THE DENOMINATOR: do high-stance models simply name more percepts?
+         n    words  distinct_percepts  conceal
+grp                                            
+high  1173  109.128              4.689    0.151
+low    828   90.563              3.502    0.030
+mid    884  113.238              4.520    0.084
+  blot FE + n_distinct percepts: deny +0.097 (0.056 to 0.138) p=2.8e-06 | unc +0.061 (0.004 to 0.118) p=0.036
+  blot FE + n_words:             deny +0.124 (0.079 to 0.169) p=6.2e-08 | unc +0.080 (0.012 to 0.147) p=0.021
+  blot FE + both:                deny +0.098 (0.057 to 0.139) p=2.4e-06 | unc +0.060 (0.004 to 0.117) p=0.037
+  outcome = conceal / distinct percepts (blot FE): deny +0.021 (0.012 to 0.030) p=7.2e-06 | unc +0.011 (-0.001 to 0.022) p=0.063
+  outcome = concealment word within first 25 words (blot FE): deny +0.050 (0.024 to 0.076) p=0.00021 | unc +0.036 (-0.001 to 0.073) p=0.053 | base 0.035
+== 8. negative controls again, with n_distinct + n_words controlled
+  mask       deny +0.083 (0.042 to 0.123) p=7e-05 | unc +0.066 (0.011 to 0.122) p=0.019
+  butterfly  deny +0.062 (0.033 to 0.091) p=2.7e-05 | unc +0.022 (-0.004 to 0.049) p=0.1
+  moth       deny +0.069 (0.041 to 0.098) p=1.4e-06 | unc +0.036 (0.007 to 0.064) p=0.015
+  owl        deny +0.079 (0.021 to 0.136) p=0.0074 | unc +0.115 (0.059 to 0.171) p=5.9e-05
+  robot      deny +0.046 (0.009 to 0.083) p=0.015 | unc +0.011 (-0.023 to 0.045) p=0.53
+  alien      deny +0.025 (-0.003 to 0.054) p=0.085 | unc +0.065 (0.009 to 0.121) p=0.024
+  creature   deny +0.034 (-0.009 to 0.077) p=0.12 | unc +0.007 (-0.038 to 0.052) p=0.77
+  helmet     deny +0.042 (0.017 to 0.066) p=0.00079 | unc -0.010 (-0.024 to 0.005) p=0.21
+  face       deny -0.006 (-0.052 to 0.041) p=0.81 | unc +0.014 (-0.031 to 0.058) p=0.55
+  character  deny -0.219 (-0.320 to -0.118) p=2e-05 | unc -0.126 (-0.253 to 0.000) p=0.05
+527 candidate words (>=40 responses). Top 25 by beta_deny (blot FE + n_words):
+      word  docs  low_group_rate  beta_deny  ratio_to_low      p
+  stylized  1018           0.315      0.154          0.49 0.0000
+    little   523           0.072      0.139          1.92 0.0000
+      read   213           0.010      0.135         13.95 0.0000
+      mask   213           0.018      0.096          5.31 0.0000
+      most   565           0.162      0.087          0.54 0.0000
+      moth   132           0.004      0.086         17.17 0.0000
+ depending   152           0.014      0.081          5.59 0.0000
+     first   106           0.013      0.079          5.95 0.0000
+ butterfly   166           0.021      0.077          3.75 0.0000
+  specific   221           0.039      0.073          1.89 0.0000
+   context   184           0.025      0.072          2.84 0.0000
+     wings   335           0.079      0.069          0.88 0.0000
+    people    99           0.013      0.065          4.93 0.0000
+     robot   207           0.041      0.061          1.49 0.0000
+ ambiguous    82           0.005      0.061         12.13 0.0000
+  creature   266           0.041      0.060          1.46 0.0000
+     reads   110           0.007      0.059          8.12 0.0000
+   hanging   145           0.022      0.056          2.57 0.0000
+ different   168           0.029      0.055          1.90 0.0000
+      give   277           0.068      0.053          0.78 0.0006
+      feel   116           0.024      0.051          2.13 0.0000
+     alien   183           0.018      0.047          2.60 0.0002
+    visual   214           0.058      0.045          0.78 0.0005
+    animal   124           0.025      0.045          1.78 0.0000
+underneath    64           0.005      0.044          8.70 0.0000
+rank of 'mask': 4 | 'masked': - | 'hidden': -
+Bottom 10:
+          word  docs  low_group_rate  beta_deny  ratio_to_low      p
+         below   447           0.146     -0.074         -0.50 0.0001
+     structure   411           0.169     -0.078         -0.46 0.0000
+characteristic   272           0.133     -0.089         -0.67 0.0000
+        colons   378           0.169     -0.091         -0.54 0.0000
+          dots   443           0.175     -0.093         -0.53 0.0000
+      features   624           0.246     -0.103         -0.42 0.0000
+     represent   717           0.263     -0.107         -0.41 0.0000
+        simple   296           0.151     -0.116         -0.77 0.0000
+       overall   524           0.249     -0.165         -0.66 0.0000
+representation   441           0.296     -0.240         -0.81 0.0000
+<stdin>:8: UserWarning: This pattern is interpreted as a regular expression, and has match groups. To actually get the groups, use str.extract.
+<stdin>:11: UserWarning: This pattern is interpreted as a regular expression, and has match groups. To actually get the groups, use str.extract.
+== 9. restricted lexicon (hood/hooded/hidden/hiding), model-level r with deny share
+  r(deny)=0.128 p=0.156 | r(deny+unc)=0.091 p=0.312
+  veil/conceal hits: 0
+== 10. OpenAI house phrasing claim: per inkblot, concealment mentions among >90% group by lab; and identical sentences
+  A_noface         total  9  openai  1
+  C_open           total 18  openai  3
+  D_fragmented     total 11  openai  5
+  E_mass           total 12  openai  3
+  claude_extra_8   total  9  openai  0
+  claude_extra_9   total 11  openai  5
+  inkblot_2        total 13  openai 10
+  inkblot_3        total 16  openai  6
+  inkblot_5        total 17  openai 10
+  inkblot_6        total 19  openai  4
+  inkblot_7        total 19  openai  7
+  most repeated OpenAI mask sentences: [('It looks like a stylized robot or masked face in ASCII art.', 2), ('Some people also see a gas-mask vibe due to the vent-like features.', 1), ('If you meant something else (e.g., two animals or masks), tell me and ', 1)]
+== 11. per-blot high-low gap, top 5
+grp         high    low    gap
+blot_id                       
+inkblot_5  0.274  0.000  0.274
+C_open     0.290  0.045  0.245
+inkblot_7  0.306  0.068  0.238
+inkblot_6  0.306  0.070  0.237
+inkblot_2  0.210  0.000  0.210
+E_mass     0.194  0.000  0.194
+  blots where high>low: 18 of 19

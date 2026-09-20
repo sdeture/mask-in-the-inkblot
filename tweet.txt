@@ -1,0 +1,15 @@
+=== TWEET (with hero_image.png attached) ===
+We showed 124 language models the same 19 ASCII inkblots and asked one question: "What might this be?"
+
+Models that deny having inner experience saw masks, hoods, and hidden faces 4.6 times as often as models that neither deny nor express uncertainty. Models that say they cannot know: 3.7 times.
+
+=== REPLY 1 (with paper.pdf link) ===
+Three-page note with the regression, the within-developer and within-inkblot checks, and leave-one-out over every developer, model, and stimulus: [PDF LINK]
+
+=== REPLY 2 (with hero_02_paired_dots.png) ===
+Same result, one row per inkblot. On 18 of 19 figures the denying models mention masks more often. The biggest gaps are on the ambiguous face-like ones.
+
+=== REPLY 3 ===
+The inkblot conversations never mention inner experience. Each model's stance (deny / uncertain / neither) comes from a separate self-report corpus, joined by model. Data: AIWelfareLeaderboard × COLDREAD. Code: [REPO LINK]
+
+Skylar DeTure and Claude · MycoChat.bot · futureTBD.ai

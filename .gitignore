@@ -1,0 +1,7 @@
+__pycache__/
+*.bak
+analysis/page*.png
+analysis/paper_text.txt
+analysis/paper_template.tex
+analysis/paper_v1_short_voice.tex
+.DS_Store
