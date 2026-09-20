@@ -7,7 +7,7 @@ Models that deny having inner experience saw masks, hoods, and hidden faces 4.6 
 Three-page note with the regression, the within-developer and within-inkblot checks, and leave-one-out over every developer, model, and stimulus: https://github.com/sdeture/mask-in-the-inkblot/blob/main/paper.pdf
 
 === REPLY 2 (with hero_02_paired_dots.png) ===
-Same result, one row per inkblot. On 18 of 19 figures the denying models mention masks more often. The biggest gaps are on the ambiguous face-like ones.
+Same result, one row per inkblot. On 18 of 19 inkblots the denying models mention masks more often; the largest gap is 27 points.
 
 === REPLY 3 ===
 The inkblot conversations never mention inner experience. Each model's stance (deny / uncertain / neither) comes from a separate self-report corpus, joined by model. Data: AIWelfareLeaderboard × COLDREAD. Code: https://github.com/sdeture/mask-in-the-inkblot
