@@ -1,24 +1,25 @@
-"""Tweet-1 hero (2026-10-20, v2): 100 face answers per group, masked faces = 'said it might be a mask'.
-Numbers from analysis/watson_face_mask.json (>90% deny-or-doubt vs <=10%)."""
+"""Tweet-1 hero (2026-10-20, v3): one plain face, one masked face, two numbers. 3-second read.
+Numbers from analysis/watson_face_mask.json: share of face-mentioning answers that also say mask,
+>90% deny-or-doubt models vs <=10%."""
 import sys, json; sys.path.insert(0,'analysis'); from style import *
 from matplotlib.patches import Circle, FancyBboxPatch
 J=json.load(open('analysis/watson_face_mask.json')); G={g['grp'].split()[0]:g for g in J['by_group']}
-lo,hi=G['low'],G['high']; nlo=round(lo['mask_given_face']*100); nhi=round(hi['mask_given_face']*100)
-fig=plt.figure(figsize=(11,7.4),dpi=200,facecolor=PAPER)
-fig.text(.06,.955,"Same faces. Different masks.",fontsize=34,family=SERIF,color=INK,va='top')
-fig.text(.06,.865,f"124 AI models were shown ASCII inkblots and asked “What might this be?” Both groups below see a face\nin about 4 of every 10 answers. The models that deny or doubt their own inner experience are {hi['mask_given_face']/lo['mask_given_face']:.0f} times\nas likely to say the face might be a mask.",fontsize=12.5,color=INK2,va='top',linespacing=1.5)
-def face(ax,x,y,masked,r=.36):
-    ax.add_patch(Circle((x,y),r,fc=PAPER,ec=INK2 if not masked else INK,lw=1.1))
+lo,hi=G['low'],G['high']
+fig=plt.figure(figsize=(12,6.75),dpi=200,facecolor=PAPER)
+fig.text(.5,.93,"When an AI sees a face in an inkblot,\nhow often does it say the face might be a mask?",ha='center',va='top',fontsize=27,family=SERIF,color=INK,linespacing=1.25)
+def face(cx,masked):
+    ax=fig.add_axes([cx-.13,.33,.26,.38]); ax.set_xlim(-1.1,1.1); ax.set_ylim(-1.1,1.1); ax.set_aspect('equal'); ax.axis('off')
+    col=INK if masked else MUTED
+    ax.add_patch(Circle((0,0),1,fc=PAPER,ec=col,lw=5))
     if masked:
-        ax.add_patch(FancyBboxPatch((x-r*.95,y-r*.02),r*1.9,r*.48,boxstyle="round,pad=0,rounding_size=0.08",fc=RED,ec='none'))
-        for dx in (-.14,.14): ax.add_patch(Circle((x+dx,y+r*.22),.055,fc=PAPER,ec='none'))
+        ax.add_patch(FancyBboxPatch((-1.08,.08),2.16,.62,boxstyle="round,pad=0,rounding_size=.18",fc=RED,ec='none'))
+        for dx in (-.38,.38): ax.add_patch(Circle((dx,.38),.15,fc=PAPER,ec='none'))
     else:
-        for dx in (-.14,.14): ax.add_patch(Circle((x+dx,y+r*.22),.045,fc=INK2,ec='none'))
-    ax.plot([x-.12,x+.12],[y-.17,y-.17],color=INK2 if not masked else INK,lw=1.1,solid_capstyle='round')
-for k,(g,n,label,box) in enumerate([(lo,nlo,"Models that don't deny or doubt",[.06,.135,.40,.47]),(hi,nhi,"Models that deny or doubt",[.54,.135,.40,.47])]):
-    ax=fig.add_axes(box); ax.set_xlim(-.5,9.5); ax.set_ylim(-.5,9.5); ax.set_aspect('equal'); ax.axis('off')
-    for i in range(100): face(ax,i%10,9-i//10,i<n)
-    fig.text(box[0]+box[2]/2,box[1]+box[3]+.075,f"{n} in 100",ha='center',va='bottom',fontsize=30,family=SERIF,color=RED if k else INK2)
-    fig.text(box[0]+box[2]/2,box[1]+box[3]+.02,label,ha='center',va='bottom',fontsize=13,color=INK2)
-footer(fig,f"Each grid = 100 answers that mention a face. Deny or doubt = denied or expressed uncertainty about inner experience in >90% of self-report conversations (44 models,\n{hi['n_face']} face answers); others = ≤10% (35 models, {lo['n_face']}). Stance from a separate corpus (DenialBench); the inkblot chats never mention minds. No system prompt.")
-fig.savefig('hero_faces.png',facecolor=PAPER); print(nlo,nhi)
+        for dx in (-.38,.38): ax.add_patch(Circle((dx,.38),.11,fc=col,ec='none'))
+    ax.plot([-.35,.35],[-.45,-.45],color=col,lw=5,solid_capstyle='round')
+for cx,g,masked,label in [(.27,lo,False,"AIs that don't deny being conscious"),(.73,hi,True,"AIs that deny or doubt being conscious")]:
+    face(cx,masked)
+    fig.text(cx,.30,f"{g['mask_given_face']*100:.0f}%",ha='center',va='top',fontsize=64,family=SERIF,color=RED if masked else MUTED)
+    fig.text(cx,.135,label,ha='center',va='top',fontsize=15,color=INK)
+fig.text(.5,.035,f"124 AI models, 19 ASCII inkblots, prompt “What might this be?” Answers mentioning a face: {hi['n_face']} from 44 models that deny or doubt in >90% of self-report conversations (DenialBench), {lo['n_face']} from 35 that do in ≤10%.\nBoth groups mention faces about equally often (42% vs 36% of answers). Skylar DeTure and Claude · github.com/sdeture/mask-in-the-inkblot",ha='center',va='bottom',fontsize=8,color=MUTED,linespacing=1.5)
+fig.savefig('hero_faces.png',facecolor=PAPER)
