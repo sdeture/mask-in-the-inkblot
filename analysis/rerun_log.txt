@@ -8,11 +8,14 @@ blot_firstdraw               n=2355 m=124 | deny_only +0.117 [+0.071,+0.163] p=5
 blot_npercepts               n=2847 m=124 | deny_only +0.099 [+0.058,+0.139] p=1.9e-06 | hedge_only +0.063 [+0.005,+0.120] p=0.032
 blot_no_openai_no_blot2      n=2193 m= 96 | deny_only +0.105 [+0.048,+0.162] p=0.00032 | hedge_only +0.089 [+0.006,+0.172] p=0.036
 blot_no_openai_anthropic     n=1577 m= 83 | deny_only +0.095 [+0.037,+0.152] p=0.0013 | hedge_only +0.013 [-0.048,+0.074] p=0.68
+blot_lab_era                 n=2676 m=115 | deny_only +0.022 [-0.056,+0.100] p=0.58 | hedge_only +0.011 [-0.058,+0.080] p=0.76
+release year | blot+lab FE {'est': 0.12892634755257176, 'p': 3.343293768187322e-06}
 restricted lexicon (hood/hidden/hiding) model-level r with deny +0.128 p=0.16
 inkblot_2 high group: {'conceal': 13, 'n': 62, 'openai_conceal': 10}
 leave-one-lab-out (12): deny +0.101..+0.128 (max p 0.003); hedge +0.078..+0.120
 leave-one-model-out (115): deny +0.109..+0.130 (max p 9e-05); hedge +0.088..+0.127
 leave-one-blot-out (19): deny +0.111..+0.134 (max p 0.0003); hedge +0.101..+0.121
+model-level partial r deny|release +0.317 p=0.00034
 model-level r deny          +0.351 p=6.3e-05
 model-level r hedge         +0.045 p=0.62
 model-level r neither       -0.382 p=1.2e-05

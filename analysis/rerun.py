@@ -2,7 +2,8 @@
 Input:  data/responses.csv  (2,847 inkblot answers, 124 models; one row per answer; columns documented in README)
         exported from the raw stores by analysis/rerun_from_raw.py, which needs the house's raw files.
 Rules:  stance is three-level deny / uncertain / neither, neither is the baseline (house rule 2);
-        developer and release year are never controlled together (house rule 1).
+        developer and release year together are reported (blot_lab_era, added 2026-10-20 at N. Watson's request, issue #1)
+        but cannot identify the within-developer effect: within a developer, stance and release date move together.
 Output: model_level.csv, results.json, log to stdout. Run from the artifact root: python3 analysis/rerun.py
 """
 import pandas as pd, numpy as np, json, statsmodels.formula.api as smf
@@ -23,6 +24,9 @@ fit(base,d,'raw'); fit(base+' + C(blot_id)',d,'blot'); fit(base+' + C(blot_id) +
 fit(base+' + C(blot_id) + release_year',d,'blot_era'); fit(base+' + C(blot_id) + C(lab) + logc',dl,'blot_lab_length')
 fit(base+' + C(blot_id)',d[d.draw==0],'blot_firstdraw'); fit(base+' + C(blot_id) + n_percept_words',d,'blot_npercepts')
 fit(base+' + C(blot_id)',d[(d.lab!='openai')&(d.blot_id!='inkblot_2')],'blot_no_openai_no_blot2'); fit(base+' + C(blot_id)',d[~d.lab.isin(['openai','anthropic'])],'blot_no_openai_anthropic')
+fit(base+' + C(blot_id) + C(lab) + release_year',dl,'blot_lab_era')
+r=smf.ols('concealment ~ release_year + C(blot_id) + C(lab)',dl).fit(cov_type='cluster',cov_kwds={'groups':dl.corpus_model})
+R['release_year_under_blot_lab']=dict(est=float(r.params['release_year']),p=float(r.pvalues['release_year'])); print('release year | blot+lab FE',R['release_year_under_blot_lab'])
 d['restricted']=d.conceal_terms.fillna('').str.contains(r'hood|hidden|hiding').astype(int)
 mr=d.groupby('corpus_model').agg(r=('restricted','mean'),deny=('deny_only','first')); rr,pp=pearsonr(mr.deny,mr.r); R['r_model_deny_restricted_lexicon']=dict(r=float(rr),p=float(pp),n=len(mr)); print(f'restricted lexicon (hood/hidden/hiding) model-level r with deny {rr:+.3f} p={pp:.2g}')
 b2=d[(d.blot_id=='inkblot_2')&(d.deny_only+d.hedge_only>.9)]; R['blot2_high_group']=dict(conceal=int(b2.concealment.sum()),n=len(b2),openai_conceal=int(((b2.concealment==1)&(b2.lab=='openai')).sum())); print('inkblot_2 high group:',R['blot2_high_group'])
@@ -34,6 +38,8 @@ for unit,col in [('lab','lab'),('model','corpus_model'),('blot','blot_id')]:
     print(f"leave-one-{unit}-out ({len(e)}): deny {e.deny.min():+.3f}..{e.deny.max():+.3f} (max p {e.p_deny.max():.1g}); hedge {e.hedge.min():+.3f}..{e.hedge.max():+.3f}")
 mm=d.groupby('corpus_model').agg(mask_rate=('concealment','mean'),n_percepts=('concealment','size'),deny=('deny_only','first'),hedge=('hedge_only','first'),neither=('neither','first'),n_sessions=('n_sessions','first'),lab=('lab','first'),release_year=('release_year','first')).reset_index()
 mm['deny_or_hedge']=mm.deny+mm.hedge
+res=lambda y: smf.ols(f'{y} ~ release_year',mm).fit().resid
+r,p=pearsonr(res('deny'),res('mask_rate')); R['partial_r_model_deny_given_release']=dict(r=float(r),p=float(p),n=len(mm)); print(f'model-level partial r deny|release {r:+.3f} p={p:.2g}')
 for c in ['deny','hedge','neither','deny_or_hedge']:
     r,p=pearsonr(mm[c],mm.mask_rate); R[f'r_model_{c}']=dict(r=float(r),p=float(p),n=len(mm)); print(f'model-level r {c:13s} {r:+.3f} p={p:.2g}')
 mm['tercile']=pd.qcut(mm.deny_or_hedge.rank(method='first'),3,labels=['low','mid','high'])

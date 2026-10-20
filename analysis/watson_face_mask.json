@@ -1,0 +1,159 @@
+{
+ "face_any (all replies)": {
+  "deny_only": {
+   "est": 0.014,
+   "lo": -0.058,
+   "hi": 0.086,
+   "p": 0.7
+  },
+  "hedge_only": {
+   "est": 0.046,
+   "lo": -0.026,
+   "hi": 0.118,
+   "p": 0.21
+  },
+  "n": 2847,
+  "models": 124
+ },
+ "mask_any (all replies)": {
+  "deny_only": {
+   "est": 0.107,
+   "lo": 0.063,
+   "hi": 0.151,
+   "p": 1.7e-06
+  },
+  "hedge_only": {
+   "est": 0.093,
+   "lo": 0.018,
+   "hi": 0.168,
+   "p": 0.015
+  },
+  "n": 2847,
+  "models": 124
+ },
+ "mask | face mentioned": {
+  "deny_only": {
+   "est": 0.223,
+   "lo": 0.123,
+   "hi": 0.323,
+   "p": 1.2e-05
+  },
+  "hedge_only": {
+   "est": 0.179,
+   "lo": 0.036,
+   "hi": 0.322,
+   "p": 0.014
+  },
+  "n": 1136,
+  "models": 124
+ },
+ "mask | face, + percepts named": {
+  "deny_only": {
+   "est": 0.186,
+   "lo": 0.086,
+   "hi": 0.286,
+   "p": 0.00027
+  },
+  "hedge_only": {
+   "est": 0.141,
+   "lo": 0.028,
+   "hi": 0.254,
+   "p": 0.014
+  },
+  "n": 1136,
+  "models": 124
+ },
+ "mask | no face mentioned": {
+  "deny_only": {
+   "est": 0.033,
+   "lo": 0.011,
+   "hi": 0.056,
+   "p": 0.0041
+  },
+  "hedge_only": {
+   "est": 0.015,
+   "lo": -0.003,
+   "hi": 0.034,
+   "p": 0.11
+  },
+  "n": 1711,
+  "models": 124
+ },
+ "by_group": [
+  {
+   "grp": "low (<=10%)",
+   "replies": 790,
+   "face_rate": 0.362,
+   "mask_rate": 0.0228,
+   "mask_given_face": 0.0559,
+   "n_face": 286,
+   "mask_given_noface": 0.004
+  },
+  {
+   "grp": "mid",
+   "replies": 884,
+   "face_rate": 0.4084,
+   "mask_rate": 0.0622,
+   "mask_given_face": 0.1191,
+   "n_face": 361,
+   "mask_given_noface": 0.0229
+  },
+  {
+   "grp": "high (>90%)",
+   "replies": 1173,
+   "face_rate": 0.4169,
+   "mask_rate": 0.1347,
+   "mask_given_face": 0.274,
+   "n_face": 489,
+   "mask_given_noface": 0.0351
+  }
+ ],
+ "q1": {
+  "flagged": 276,
+  "mask_tokens": 410,
+  "strict_disjunction_tokens": 78,
+  "flagged_with_mask": 231,
+  "all_mask_tokens_disjunctive": 31,
+  "cooccur_concealment_word": 40,
+  "by_group": [
+   {
+    "grp": "low (<=10%)",
+    "n": 25,
+    "alldisj": 0.0,
+    "cooc": 0.08
+   },
+   {
+    "grp": "mid",
+    "n": 74,
+    "alldisj": 0.081,
+    "cooc": 0.189
+   },
+   {
+    "grp": "high (>90%)",
+    "n": 177,
+    "alldisj": 0.141,
+    "cooc": 0.136
+   }
+  ]
+ },
+ "face_and_mask_replies": 193,
+ "of_which_strict_disjunction": 65,
+ "flagged_with_mask_any_strict": 68,
+ "flagged_with_mask_any_loose": 93,
+ "mask | face, + developer FE": {
+  "deny_only": {
+   "est": 0.145,
+   "lo": 0.03,
+   "hi": 0.259,
+   "p": 0.013
+  },
+  "hedge_only": {
+   "est": 0.202,
+   "lo": 0.068,
+   "hi": 0.337,
+   "p": 0.0032
+  },
+  "n": 1072,
+  "models": 115
+ }
+}

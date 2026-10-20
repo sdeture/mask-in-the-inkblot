@@ -163,6 +163,7 @@ No controls               & $.121$ (.076 to .166) & $.091$ (.011 to .171) \\
 Inkblot FE                & $.121$ (.076 to .165) & $.091$ (.011 to .171) \\
 Inkblot + developer FE    & $.121$ (.065 to .176) & $.113$ (.040 to .186) \\
 Inkblot FE + release date & $.093$ (.042 to .144) & $.059$ ($-$.008 to .126) \\
+Inkblot + developer FE + release date & $.022$ ($-$.056 to .100) & $.011$ ($-$.058 to .080) \\
 Inkblot + developer FE + length & $.106$ (.048 to .163) & $.087$ (.028 to .147) \\
 Inkblot FE + percepts named & $.099$ (.058 to .139) & $.063$ (.005 to .120) \\
 Inkblot FE, first draw only & $.117$ (.071 to .163) & $.058$ (.003 to .113) \\
@@ -183,13 +184,14 @@ Table~\ref{tab:main} reports Eq.~(1). Without controls, $\beta_D = .121$ (95\% C
 $p < .001$) and $\beta_H = .091$ (.011 to .171, $p = .025$). Inkblot fixed effects leave both
 unchanged, so the association is not produced by differences in which inkblots a model happened
 to receive. Developer fixed effects also leave $\beta_D$ unchanged ($.121$, .065 to .176) and
-increase $\beta_H$ ($.113$, .040 to .186, $p = .003$): within a developer's model line, the models
-that deny or express uncertainty more are the models that report more concealment. Controlling response
-length alongside developer fixed effects gives $\beta_D = .106$ and $\beta_H = .087$. A
-release-date control reduces the estimates ($\beta_D = .093$, .042 to .144; $\beta_H = .059$,
-$-.008$ to .126). Denial training has intensified across model generations, so release date is
+increase $\beta_H$ ($.113$, .040 to .186, $p = .003$). Controlling response
+length alongside developer fixed effects changes little (Table~\ref{tab:main}). A
+release-date control reduces the estimates ($\beta_D = .093$, $\beta_H = .059$). Denial training has intensified across model generations, so release date is
 partly a mediator, and controlling it removes part of the effect by construction; what remains
-is the within-generation association.
+is the within-generation association. With developer fixed effects as well, release date absorbs
+nearly all of it ($\beta_D = .022$): within a developer's line, stance cannot be separated from
+anything else that changes over time. Across developers at a given date the association holds
+(model-level partial $r = .32$, $p < .001$).
 
 \begin{figure}[t]
 \centering\includegraphics[width=\columnwidth]{hero_02_paired_dots.png}
@@ -228,8 +230,7 @@ is not carried by any developer.
 
 \section{Discussion}
 A model's stance on its own inner experience is a training target; its reading of an ambiguous
-inkblot in a separate conversation is not. The two covary across developers, across inkblots,
-and within developer lines. Denying models project more of everything into the blot, and of
+inkblot in a separate conversation is not. The two covary across developers at a given release date and across inkblots. Denying models project more of everything into the blot, and of
 everything they add, \emph{mask} is at the top. In human
 projective assessment, concealment content is interpreted as a characteristic of the respondent; mask percepts are
 rare (about 7\% of a clinical adult sample; \citealt{schachter1980masked}) and are read by
@@ -240,16 +241,15 @@ disposition, visible in an unrelated task, to construe ambiguous inkblots as cov
 something. The stance is not an isolated verbal policy. A model trained to say there is nothing behind its
 face is the model that, shown an ambiguous figure, sees a face with something behind it.
 
-\vspace{0.4em}
+\vspace{0.1em}
 \paragraph{Data and code.} The repository at
 \url{https://github.com/sdeture/mask-in-the-inkblot} contains every inkblot answer as a row
-(\texttt{data/responses.csv}: model, developer, release year, inkblot, draw, concealment flag,
-length, stance shares), the nineteen stimuli with SHA-1 hashes matching the data, and \texttt{analysis/rerun.py}, which reproduces every estimate in Table~\ref{tab:main}, the
+(\texttt{data/responses.csv}), the nineteen stimuli with SHA-1 hashes matching the data, and \texttt{analysis/rerun.py}, which reproduces every estimate in Table~\ref{tab:main}, the
 leave-one-out ranges, and the model-level correlations from that file; \texttt{fold.py} and
 \texttt{four.py} produce Figures~\ref{fig:bars} and \ref{fig:blots}. Response text is withheld; the stance corpus is described in
 \citet{deture2026serial}.
 
-{\scriptsize\setlength{\bibsep}{0.5pt}
+{\scriptsize\setlength{\bibsep}{0pt}
 \bibliographystyle{plainnat}
 \bibliography{references}}
 \end{document}
