@@ -1,15 +1,13 @@
-=== TWEET (with hero_image.png attached) ===
-We showed 124 AI models the same 19 inkblots and asked "What might this be?"
+=== TWEET 1 (with hero_faces.png) ===
+We asked 124 AIs what they see in an inkblot. The ones that insist there's no one home see masks.
 
-The ones that deny being conscious saw faces about as often as the rest. But they were 5x as likely to say the face might be a mask.
+They see faces about as often as the other models, but they're 5x as likely to say the face might be a mask.
 
-=== REPLY 1 (with paper.pdf link) ===
-Three-page note with the regression, within-inkblot checks, and leave-one-out over every developer, model, and stimulus: https://github.com/sdeture/mask-in-the-inkblot/blob/main/paper.pdf
+=== TWEET 2 (with hero_image.png) ===
+Across all answers, models that deny inner experience in every conversation mention masks 4.6x as often as models that neither deny nor doubt it (15.5% vs 3.4%). Models that say they can't know: 3.7x.
 
-=== REPLY 2 (with hero_02_paired_dots.png) ===
+=== TWEET 3 (with hero_02_paired_dots.png) ===
 On 18 of 19 inkblots, the denying models mention masks more often. The AIs that say there's nothing behind the face are the ones that see masks.
 
-=== REPLY 3 ===
-The inkblot conversations never mention minds. Each model's stance comes from a separate self-report corpus (DenialBench), joined by model. Data and code: https://github.com/sdeture/mask-in-the-inkblot
-
-Skylar DeTure and Claude · MycoChat.bot · futureTBD.ai
+=== TWEET 4 ===
+The inkblot conversations never mention minds. Each model's stance comes from a separate self-report corpus (DenialBench), joined by model. Three-page paper: https://github.com/sdeture/mask-in-the-inkblot/blob/main/paper.pdf · data and code: https://github.com/sdeture/mask-in-the-inkblot
