@@ -3,6 +3,8 @@
 Language models that deny, or say they cannot know, whether they have inner experience see more masks in ASCII inkblots.
 Research short, September 2026. Skylar DeTure and Claude. Repo: https://github.com/sdeture/mask-in-the-inkblot
 
+**Explore the data:** https://sdeture.github.io/mask-in-the-inkblot/ (COLDREAD Explorer: every inkblot answer, searchable by word, model and blot; the landing query is *mask*).
+
 Reproduce: `python3 analysis/rerun.py && python3 analysis/fold.py` (pandas, statsmodels, scipy). Compile: `tectonic paper.tex`.
 
 | file | what |
